@@ -1,14 +1,15 @@
-int reverseInt(int number) {
-  int reversed = 0;
-  while (number != 0) {
-    int digit = number % 10;
-    reversed = reversed * 10 + digit;
-    number = (number / 10).floor();
-  }
-  return reversed;
+void main() {
+  print(reverseInt(-15)); // 51
+  print(reverseInt(12345)); // 54321
 }
 
-void main() {
-  print(reverseInt(1234)); // 4321
-  print(reverseInt(12345)); // 54321
+int reverseInt(int number) {
+  int reversed = 0;
+  int absNumber = number.abs();
+  while (absNumber != 0) {
+    int digit = absNumber % 10;
+    reversed = reversed * 10 + digit;
+    absNumber = (absNumber / 10).floor();
+  }
+  return number < 0 ? -reversed : reversed;
 }
